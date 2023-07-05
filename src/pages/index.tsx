@@ -132,6 +132,9 @@ export default function Home() {
         <Button variant="ghost" size="sm">
           Error
         </Button>
+        <Button variant="link" size="sm">
+          Error
+        </Button>
       </div>
     </div>
   );
