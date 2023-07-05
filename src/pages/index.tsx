@@ -105,8 +105,7 @@ const colorsPallete = [
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <Button variant="secondary">Haha</Button>
+    <div className="flex flex-col justify-center items-center min-h-screen">
       <div className="flex justify-center w-1/2 gap-3 flex-wrap">
         {colorsPallete.map((color) => (
           <div className="flex flex-col items-center gap-2">
@@ -114,10 +113,25 @@ export default function Home() {
             <div
               className={`w-12 text-white flex justify-center items-center h-12 rounded-full border-2 border-black ${color.style}`}
             >
-              s
+              S
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-10">
+        <Button>Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="accent">Accent</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="success" size="lg">
+          Success
+        </Button>
+        <Button variant="error" size="sm">
+          Error
+        </Button>
+        <Button variant="ghost" size="sm">
+          Error
+        </Button>
       </div>
     </div>
   );
