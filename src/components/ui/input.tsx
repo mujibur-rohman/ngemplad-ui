@@ -1,22 +1,70 @@
 import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+const inputVariants = cva(
+  "flex w-full rounded-sm border border-input bg-background px-2 py-2 transition-all text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground/50 outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+  {
+    variants: {
+      sizes: {
+        sm: "h-7 text-xs",
+        md: "h-8 text-sm",
+        lg: "h-10 text-md",
+      },
+      rounded: {
+        none: "rounded-none",
+        sm: "rounded-sm",
+        md: "rounded-md",
+        full: "rounded-full px-3",
+      },
+    },
+    defaultVariants: {
+      sizes: "md",
+      rounded: "md",
+    },
+  }
+);
+
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof inputVariants> {
+  error?: boolean;
+  icon?: React.ReactElement;
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, error, sizes, rounded, icon, ...props }, ref) => {
     return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
+      <div className={cn("relative flex flex-col", { "text-error": error })}>
+        <input
+          type={type}
+          className={cn(
+            inputVariants({ sizes, rounded }),
+            {
+              "border-error focus:ring-error text-error placeholder:text-error/60":
+                error,
+              "pr-8": icon,
+            },
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+        {icon && (
+          <div
+            className={cn(
+              "absolute bg-background right-0 top-0 bottom-0 flex items-center justify-center m-2 text-ring"
+            )}
+          >
+            {React.cloneElement(icon, {
+              className: cn("w-5 h-5", {
+                "w-4 h-4": sizes === "sm",
+              }),
+            })}
+          </div>
         )}
-        ref={ref}
-        {...props}
-      />
+      </div>
     );
   }
 );

@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Eye } from "lucide-react";
 
 const colorsPallete = [
   {
@@ -134,7 +135,13 @@ export default function Home() {
         <Button variant="ghost" className="text-primary hover:bg-primary/10">
           Test
         </Button>
-        <Input type="text" />
+        <Input
+          icon={<Eye strokeWidth={1} />}
+          sizes="sm"
+          rounded="full"
+          type="text"
+          placeholder="username"
+        />
       </div>
     </div>
   );
