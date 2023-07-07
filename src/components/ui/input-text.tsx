@@ -26,19 +26,18 @@ const inputVariants = cva(
   }
 );
 
-export interface InputProps
+export interface InputTextProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
   error?: boolean;
   icon?: React.ReactElement;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, error, sizes, rounded, icon, ...props }, ref) => {
+const InputText = React.forwardRef<HTMLInputElement, InputTextProps>(
+  ({ className, error, sizes, rounded, icon, ...props }, ref) => {
     return (
       <div className={cn("relative flex flex-col", { "text-error": error })}>
         <input
-          type={type}
           className={cn(
             inputVariants({ sizes, rounded }),
             {
@@ -50,6 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
           ref={ref}
           {...props}
+          type="text"
         />
         {icon && (
           <div
@@ -68,6 +68,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-Input.displayName = "Input";
+InputText.displayName = "Input";
 
-export { Input };
+export { InputText };
