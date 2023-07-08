@@ -119,7 +119,7 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center min-h-screen">
       <div className="flex justify-center w-1/2 gap-3 flex-wrap">
         {colorsPallete.map((color) => (
-          <div className="flex flex-col items-center gap-2">
+          <div key={color.style} className="flex flex-col items-center gap-2">
             <h1 className="text-sm">{color.name}</h1>
             <div
               className={`w-12 text-white flex justify-center items-center h-12 rounded-full border-2 border-black ${color.style}`}
@@ -136,7 +136,8 @@ export default function Home() {
         <Button variant="ghost" className="text-primary hover:bg-primary/10">
           Test
         </Button>
-        <InputPassword placeholder="Password" icon />
+        <InputText icon={<Eye />} type="file" placeholder="jhaj" sizes="sm" />
+        <InputPassword disabled placeholder="Password" icon />
       </div>
     </div>
   );
