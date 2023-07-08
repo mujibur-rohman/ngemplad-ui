@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { InputPassword } from "@/components/ui/input-password";
 import { InputText } from "@/components/ui/input-text";
 import { Eye } from "lucide-react";
 
@@ -135,12 +136,7 @@ export default function Home() {
         <Button variant="ghost" className="text-primary hover:bg-primary/10">
           Test
         </Button>
-        <InputText
-          // icon={<Eye strokeWidth={1} />}
-          sizes="sm"
-          rounded="full"
-          placeholder="username"
-        />
+        <InputPassword placeholder="Password" icon />
       </div>
     </div>
   );
