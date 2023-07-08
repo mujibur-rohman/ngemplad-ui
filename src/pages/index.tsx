@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { InputFile } from "@/components/input-file/input-file";
 import { InputPassword } from "@/components/ui/input-password";
 import { InputText } from "@/components/ui/input-text";
 import { Eye } from "lucide-react";
@@ -136,8 +137,13 @@ export default function Home() {
         <Button variant="ghost" className="text-primary hover:bg-primary/10">
           Test
         </Button>
-        <InputText icon={<Eye />} type="file" placeholder="jhaj" sizes="sm" />
-        <InputPassword disabled placeholder="Password" icon />
+        <InputFile
+          type="file"
+          placeholder="jhaj"
+          sizes="sm"
+          onChange={(e) => console.log(e.target.files)}
+        />
+        {/* <InputPassword disabled placeholder="Password" icon /> */}
       </div>
     </div>
   );

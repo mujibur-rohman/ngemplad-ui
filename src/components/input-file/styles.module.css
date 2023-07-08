@@ -1,0 +1,15 @@
+.input-file-container {
+  @apply flex w-full rounded-md border border-input bg-background transition-all text-sm ring-offset-background outline-none active:ring-1 active:ring-primary active:text-primary;
+}
+
+.input-file {
+  @apply hidden;
+}
+
+.input-file:disabled + label {
+  @apply bg-muted opacity-50 cursor-not-allowed;
+}
+
+.label-file {
+  @apply w-full cursor-pointer flex justify-center items-center gap-2 px-3;
+}
