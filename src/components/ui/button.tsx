@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
+        primary:
           "bg-primary text-primary-foreground hover:bg-primary/80 active:bg-primary-focus",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary-focus active:bg-secondary/80",
@@ -35,7 +35,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "md",
     },
   }

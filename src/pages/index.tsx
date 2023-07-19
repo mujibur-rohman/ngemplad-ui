@@ -139,6 +139,21 @@ export default function Home() {
           Test
         </Button>
         <Badge>Badge</Badge>
+        <InputFile />
+        <br />
+        <InputPassword icon />
+        <br />
+        <div className="flex gap-3">
+          <Badge color="success" variant="outline" rounded="sm">
+            Badge
+          </Badge>
+          <Badge color="success" variant="light" size="sm" rounded="sm">
+            Badge
+          </Badge>
+          <Badge color="warning" variant="light" rounded="md" size="xs">
+            Badge
+          </Badge>
+        </div>
       </div>
     </div>
   );
