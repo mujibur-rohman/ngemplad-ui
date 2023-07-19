@@ -11,6 +11,7 @@ import { InputFile } from "@/components/input-file/input-file";
 import { InputPassword } from "@/components/ui/input-password";
 import { InputText } from "@/components/ui/input-text";
 import { Eye } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const colorsPallete = [
   {
@@ -117,7 +118,7 @@ const colorsPallete = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
+    <div className="flex flex-col pt-10 items-center min-h-screen">
       <div className="flex justify-center w-1/2 gap-3 flex-wrap">
         {colorsPallete.map((color) => (
           <div key={color.style} className="flex flex-col items-center gap-2">
@@ -137,13 +138,7 @@ export default function Home() {
         <Button variant="ghost" className="text-primary hover:bg-primary/10">
           Test
         </Button>
-        <InputFile
-          type="file"
-          placeholder="jhaj"
-          sizes="sm"
-          onChange={(e) => console.log(e.target.files)}
-        />
-        {/* <InputPassword disabled placeholder="Password" icon /> */}
+        <Badge>Badge</Badge>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .input-file-container {
-  @apply flex w-full rounded-md border border-input bg-background transition-all text-sm ring-offset-background outline-none active:ring-1 active:ring-primary active:text-primary;
+  @apply flex w-full rounded-md border overflow-hidden transition-all text-sm ring-offset-background outline-none active:ring-1 active:ring-primary active:text-primary;
 }
 
 .input-file {
@@ -11,5 +11,5 @@
 }
 
 .label-file {
-  @apply w-full cursor-pointer flex justify-center items-center gap-2 px-3;
+  @apply transition-colors hover:bg-primary/10 hover:text-primary w-full cursor-pointer flex justify-center items-center gap-2 px-3;
 }
