@@ -23,6 +23,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import React from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const colorsPallete = [
   {
@@ -133,8 +140,22 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative">
-        <div className="hero h-screen">test</div>
+      <section className="relative p-10">
+        <InputText className="w-[210px]" />
+        <InputPassword icon={true} className="w-[300px]" />
+        <div>
+          <Select>
+            <SelectTrigger className="w-[210px]">
+              <SelectValue placeholder="Choose Theme" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="light">Light</SelectItem>
+              <SelectItem value="dark">Dark</SelectItem>
+              <SelectItem value="system">System</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        {/* <div className="hero h-screen">test</div> */}
       </section>
     </main>
   );

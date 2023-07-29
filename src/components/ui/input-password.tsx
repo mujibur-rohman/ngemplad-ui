@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Eye, EyeOff } from "lucide-react";
 
 const inputVariants = cva(
-  "flex w-full rounded-sm border border-input bg-background px-2 py-2 transition-all text-sm placeholder:text-muted-foreground/50 outline-none focus:ring-2 ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted",
+  "flex w-full border border-input bg-background px-2 py-2 transition-all text-sm placeholder:text-muted-foreground/50 outline-none focus:ring-2 ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted",
   {
     variants: {
       sizes: {
@@ -39,7 +39,15 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ className, error, sizes, rounded, icon, iconStyle, ...props }, ref) => {
     const [isPassword, setIsPassword] = React.useState<boolean>(true);
     return (
-      <div className={cn("relative flex flex-col", { "text-error": error })}>
+      <div
+        className={cn(
+          "relative min-w-[210px] flex flex-col",
+          {
+            "text-error": error,
+          },
+          className
+        )}
+      >
         <input
           className={cn(
             inputVariants({ sizes, rounded }),
@@ -57,7 +65,7 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
         {icon && (
           <div
             className={cn(
-              "absolute bg-background right-0 top-0 bottom-0 flex items-center justify-center m-2 text-ring"
+              "absolute bg-transparent right-0 top-0 bottom-0 flex items-center justify-center m-2 text-ring"
             )}
           >
             {isPassword ? (
