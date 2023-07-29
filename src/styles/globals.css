@@ -85,3 +85,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hero {
+  background: linear-gradient(
+    180deg,
+    #c7fbff9a 0%,
+    rgba(236, 254, 255, 0) 100%
+  );
+}

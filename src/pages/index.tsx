@@ -12,6 +12,17 @@ import { InputPassword } from "@/components/ui/input-password";
 import { InputText } from "@/components/ui/input-text";
 import { Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import React from "react";
 
 const colorsPallete = [
   {
@@ -116,45 +127,15 @@ const colorsPallete = [
   },
 ];
 
+const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <div className="flex flex-col pt-10 items-center min-h-screen">
-      <div className="flex justify-center w-1/2 gap-3 flex-wrap">
-        {colorsPallete.map((color) => (
-          <div key={color.style} className="flex flex-col items-center gap-2">
-            <h1 className="text-sm">{color.name}</h1>
-            <div
-              className={`w-12 text-white flex justify-center items-center h-12 rounded-full border-2 border-black ${color.style}`}
-            >
-              S
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-10">
-        <Button variant="outline" className="border-primary text-primary">
-          Test
-        </Button>
-        <Button variant="ghost" className="text-primary hover:bg-primary/10">
-          Test
-        </Button>
-        <Badge>Badge</Badge>
-        <InputFile />
-        <br />
-        <InputPassword icon />
-        <br />
-        <div className="flex gap-3">
-          <Badge color="success" variant="outline" rounded="sm">
-            Badge
-          </Badge>
-          <Badge color="success" variant="light" size="sm" rounded="sm">
-            Badge
-          </Badge>
-          <Badge color="warning" variant="light" rounded="md" size="xs">
-            Badge
-          </Badge>
-        </div>
-      </div>
-    </div>
+    <main>
+      <section className="relative">
+        <div className="hero h-screen">test</div>
+      </section>
+    </main>
   );
 }

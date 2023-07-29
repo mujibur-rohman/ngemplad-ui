@@ -7,15 +7,6 @@ const badgeVariants = cva(
   "inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
-      // variant: {
-      //   filled:
-      //     "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-      //   light:
-      //     "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-      //   destructive:
-      //     "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-      //   outline: "text-foreground",
-      // },
       size: {
         xs: "h-5 px-2 text-xs",
         sm: "h-7 px-3 text-sm",
