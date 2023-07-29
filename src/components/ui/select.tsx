@@ -30,7 +30,9 @@ const selectVariants = cva(
 
 export interface InputSelectProps
   extends VariantProps<typeof selectVariants>,
-    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {}
+    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
+  error?: boolean;
+}
 
 const Select = SelectPrimitive.Root;
 
@@ -41,10 +43,17 @@ const SelectValue = SelectPrimitive.Value;
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   InputSelectProps
->(({ className, children, rounded, sizes, ...props }, ref) => (
+>(({ className, children, rounded, sizes, error, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cn(selectVariants({ rounded, sizes }), className)}
+    className={cn(
+      selectVariants({ rounded, sizes }),
+      {
+        "border-error focus:ring-error text-error placeholder:text-error/60":
+          error,
+      },
+      className
+    )}
     {...props}
   >
     {children}

@@ -145,7 +145,7 @@ export default function Home() {
         <InputPassword icon={true} className="w-[300px]" />
         <div>
           <Select>
-            <SelectTrigger className="w-[210px]">
+            <SelectTrigger className="w-[210px]" error>
               <SelectValue placeholder="Choose Theme" />
             </SelectTrigger>
             <SelectContent>
